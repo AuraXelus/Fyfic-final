@@ -8,7 +8,7 @@ using namespace std;
 int bibjour;
 int quantbib;
 vector <int> hbib;
-vector <string> courses;
+string courses;
 bool profil = false;
 bool heure = false;
 
@@ -52,24 +52,36 @@ void profiluser() {
 
 void liste() {
 	int a;
-	cout << "\nListe de course :\n1 -> Modifier la liste\n2 -> Retour au menu\n";
+
+	do{
+	cout << "\nListe de course :\n" ;
 	for (int i = 0; i < courses.size(); i++) {
-		cout << courses[i] << ", ";
+		cout << courses[i];
 	}
+	cout << "\n\n1->Ajouter un article\n2->supprimer la liste\n3->Retour au menu\n";
 	cin >> a;
 
 	if (a == 1) {
-		cout << "\nAvec quoi voulez-vous nourir le enfant ?\nAppuyez sur 1 pour quitter\n";
-		int j;
-
-		do {
-			cin >> j;
-		} while (a != 1);
+		cout << "\nAvec quoi voulez-vous nourir le enfant ?\n";
+		a = 0;
+		string j;
+		cin >> j;
+		courses += j;
+		courses += ", ";
 	}
-
-	else {
+	/*else if (a == 2) {
+		cout << "Quel article voulez-vous supprimer ?";
+		for (int i = 0; i < courses.size(); i++) {
+			cout << i + 1 << " -> " << courses[i];
+		}
+	}*/
+	else if(a == 2) {
+		courses = " ";
+	}
+	else{
 		cout << "\nRetour au menu\n";
 	}
+	} while (a < 3);
 }
 
 int main() {
