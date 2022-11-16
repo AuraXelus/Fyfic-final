@@ -3,7 +3,10 @@
 #include <vector>
 #include <windows.h>
 #include <stdbool.h>
+#include <ctime>
 using namespace std;
+//Désactive le message d'erreur lié à ctime
+#pragma warning( disable : 4996 )
 
 int bibjour;
 int quantbib;
@@ -11,7 +14,6 @@ vector <int> hbib;
 string courses;
 bool profil = false;
 bool heure = false;
-
 
 
 void affiche() {
@@ -53,39 +55,77 @@ void profiluser() {
 void liste() {
 	int a;
 
-	do{
-	cout << "\nListe de course :\n" ;
-	for (int i = 0; i < courses.size(); i++) {
-		cout << courses[i];
-	}
-	cout << "\n\n1->Ajouter un article\n2->supprimer la liste\n3->Retour au menu\n";
-	cin >> a;
-
-	if (a == 1) {
-		cout << "\nAvec quoi voulez-vous nourir le enfant ?\n";
-		a = 0;
-		string j;
-		cin >> j;
-		courses += j;
-		courses += ", ";
-	}
-	/*else if (a == 2) {
-		cout << "Quel article voulez-vous supprimer ?";
+	do {
+		cout << "\nListe de course :\n";
 		for (int i = 0; i < courses.size(); i++) {
-			cout << i + 1 << " -> " << courses[i];
+			cout << courses[i];
 		}
-	}*/
-	else if(a == 2) {
-		courses = " ";
-	}
-	else{
-		cout << "\nRetour au menu\n";
-	}
+		cout << "\n\n1->Ajouter un article\n2->supprimer la liste\n3->Retour au menu\n";
+		cin >> a;
+
+		if (a == 1) {
+			cout << "\nAvec quoi voulez-vous nourir le enfant ?\n";
+			a = 0;
+			string j;
+			cin >> j;
+			courses += j;
+			courses += ", ";
+		}
+		/*else if (a == 2) {
+			cout << "Quel article voulez-vous supprimer ?";
+			for (int i = 0; i < courses.size(); i++) {
+				cout << i + 1 << " -> " << courses[i];
+			}
+		}*/
+		else if (a == 2) {
+			courses = " ";
+		}
+		else {
+			cout << "\nRetour au menu\n";
+		}
 	} while (a < 3);
+}
+
+
+
+time_t getheure() {
+
+	// current date/time based on current system
+	time_t now = time(0);
+
+	// convert now to string form
+	tm* ltm = localtime(&now);
+
+	time_t heure = ltm->tm_hour;
+	return heure;
+}
+
+time_t getmin() {
+
+	// current date/time based on current system
+	time_t now = time(0);
+
+	// convert now to string form
+	tm* ltm = localtime(&now);
+
+	time_t minute = ltm->tm_min;
+	return minute;
 }
 
 int main() {
 	int rep;
+
+	/*bool boucle = true;
+	while (boucle) {
+		time_t now = time(0);
+		tm* ltm = localtime(&now);
+		cout << "Time: " << ltm->tm_hour << ":";
+		cout << ltm->tm_min << ":";
+		cout << ltm->tm_sec;
+		cout << "\n";
+	}*/
+
+	cout << getheure() << " : " << getmin();
 
 	do {
 
