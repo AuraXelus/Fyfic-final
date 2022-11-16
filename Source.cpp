@@ -31,7 +31,6 @@ void affiche() {
 		system("pause");
 	}
 
-
 }
 
 void profiluser() {
@@ -71,12 +70,7 @@ void liste() {
 			courses += j;
 			courses += ", ";
 		}
-		/*else if (a == 2) {
-			cout << "Quel article voulez-vous supprimer ?";
-			for (int i = 0; i < courses.size(); i++) {
-				cout << i + 1 << " -> " << courses[i];
-			}
-		}*/
+
 		else if (a == 2) {
 			courses = " ";
 		}
@@ -112,6 +106,63 @@ time_t getmin() {
 	return minute;
 }
 
+
+
+
+/************************************************/
+
+struct Produit {
+	string nProduit;
+	int qProduit = NULL;
+};
+
+Produit InitProduit(string n, int q) {
+	Produit P;
+	P.nProduit = n;
+	P.qProduit = q;
+	return P;
+}
+
+void DiplayProduit(Produit P) {
+	cout << P.qProduit << ", " << P.nProduit << endl;
+}
+
+void ShowedList(const vector<Produit>& L) {
+	for (Produit P : L) {
+		DiplayProduit(P);
+	}
+}
+
+void InitListe(vector<Produit>& L) {
+	string n; int q;
+	int a;
+
+	do {
+
+		cout << "\Liste de course :\n";
+		ShowedList(L);
+
+		cout << "\n\n1->Ajouter un article\n2->supprimer la liste\n3->Retour au menu\n";
+		cin >> a;
+
+		if (a == 1) {
+			cout << "nom produit ?" << endl;
+			cin >> n;
+			cout << "quantite ? " << endl;
+			cin >> q;
+			L.push_back(InitProduit(n, q));
+		}
+
+		else if (a == 2) {
+			L.resize(0);
+		}
+		else {
+			cout << "\nRetour au menu\n";
+		}
+	} while (a < 3);
+
+}
+
 int main() {
 	int rep;
 
@@ -124,6 +175,8 @@ int main() {
 		cout << ltm->tm_sec;
 		cout << "\n";
 	}*/
+
+	vector<Produit> ListCours;
 
 	cout << getheure() << " : " << getmin();
 
@@ -147,7 +200,9 @@ int main() {
 		}
 
 		else if (rep == 3) {
-			liste();
+			//liste();
+			InitListe(ListCours);
+
 		}
 
 		else if (rep == 4) {
