@@ -1,7 +1,7 @@
-#include <iostream>
+#include "CApp.h"
 
-int main()
-{
-	//Test
-	return 0;
+int main(int argc, char* argv[]) {
+    CApp theApp;
+
+    return theApp.OnExecute();
 }

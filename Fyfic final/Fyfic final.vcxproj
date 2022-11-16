@@ -78,6 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <ExternalIncludePath>C:\vclib\SDL2-2.24.2\SDL2_image-2.6.2\include;C:\vclib\SDL2-2.24.2\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <LibraryPath>C:\vclib\SDL2-2.24.2\SDL2_image-2.6.2\lib\x64;C:\vclib\SDL2-2.24.2\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -120,6 +122,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -139,7 +142,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\YRGTech\fyfic\CApp.cpp" />
+    <ClCompile Include="..\..\..\YRGTech\fyfic\CApp_OnCleanup.cpp" />
+    <ClCompile Include="..\..\..\YRGTech\fyfic\CApp_OnEvent.cpp" />
+    <ClCompile Include="..\..\..\YRGTech\fyfic\CApp_OnInit.cpp" />
+    <ClCompile Include="..\..\..\YRGTech\fyfic\CApp_OnLoop.cpp" />
+    <ClCompile Include="..\..\..\YRGTech\fyfic\CApp_OnRender.cpp" />
+    <ClCompile Include="..\..\..\YRGTech\fyfic\CSurface.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\YRGTech\fyfic\CApp.h" />
+    <ClInclude Include="..\..\..\YRGTech\fyfic\CSurface.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\YRGTech\fyfic\Star Citizen 12_07_2022 19_22_52.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

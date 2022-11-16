@@ -13,10 +13,62 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="CApp">
+      <UniqueIdentifier>{a40f4107-3279-407f-8eb3-3e04f561d68d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CApp\.h">
+      <UniqueIdentifier>{9bf0fdb3-26e5-4ec1-8c71-13dbdaa30e05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CApp\.cpp">
+      <UniqueIdentifier>{937f11d6-dd0e-4c86-b561-3c42cbf3bd85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CSurface">
+      <UniqueIdentifier>{043f070a-1f7d-4c11-a352-994a48920124}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CSurface\.h">
+      <UniqueIdentifier>{20e9b054-8733-47f8-bfaf-601af9ab0629}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CSurface\.cpp">
+      <UniqueIdentifier>{32002136-9192-4352-9f61-9ed7fa6f4ce8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\YRGTech\fyfic\CApp.cpp">
+      <Filter>CApp\.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\YRGTech\fyfic\CApp_OnLoop.cpp">
+      <Filter>CApp\.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\YRGTech\fyfic\CApp_OnRender.cpp">
+      <Filter>CApp\.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\YRGTech\fyfic\CApp_OnCleanup.cpp">
+      <Filter>CApp\.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\YRGTech\fyfic\CApp_OnEvent.cpp">
+      <Filter>CApp\.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\YRGTech\fyfic\CApp_OnInit.cpp">
+      <Filter>CApp\.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\YRGTech\fyfic\CSurface.cpp">
+      <Filter>CSurface\.cpp</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\YRGTech\fyfic\CApp.h">
+      <Filter>CApp\.h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\YRGTech\fyfic\CSurface.h">
+      <Filter>CSurface\.h</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\YRGTech\fyfic\Star Citizen 12_07_2022 19_22_52.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
   </ItemGroup>
 </Project>
