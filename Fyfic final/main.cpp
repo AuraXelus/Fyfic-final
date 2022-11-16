@@ -2,6 +2,6 @@
 
 int main(int argc, char* argv[]) {
     CApp theApp;
-    /*ufhgfdgfhdd*/
+
     return theApp.OnExecute();
 }

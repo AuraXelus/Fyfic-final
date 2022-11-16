@@ -1,5 +1,5 @@
 #pragma once
-
+/*iufyuffy*/
 #include <SDL.h>
 #include <stdio.h>
 
@@ -11,32 +11,32 @@ const int SCREEN_HEIGHT = 480;
 
 
 class CApp {
-    private:
-        bool    Running;
+private:
+    bool    Running;
 
-        //The window we'll be rendering to
-        SDL_Window* Window ;
+    //The window we'll be rendering to
+    SDL_Window* Window;
 
-        //surface test
-        SDL_Surface* Surf_Test;
+    //surface test
+    SDL_Surface* Surf_Test;
 
-    public:
+public:
 
-        CApp();
+    CApp();
 
-        int OnExecute();
+    int OnExecute();
 
-        bool OnInit();
+    bool OnInit();
 
-        void OnEvent(SDL_Event* Event);
+    void OnEvent(SDL_Event* Event);
 
-        void OnLoop();
+    void OnLoop();
 
-        void OnRender();
+    void OnRender();
 
-        void OnCleanup();
+    void OnCleanup();
 
-        //The surface contained by the window
-        SDL_Surface* ScreenSurface;
+    //The surface contained by the window
+    SDL_Surface* ScreenSurface;
 };
 
