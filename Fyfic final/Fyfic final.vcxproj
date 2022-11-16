@@ -152,11 +152,11 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\YRGTech\fyfic\CApp.h" />
-    <ClInclude Include="..\..\..\YRGTech\fyfic\CSurface.h" />
+    <Image Include="..\..\..\YRGTech\fyfic\Star Citizen 12_07_2022 19_22_52.png" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\YRGTech\fyfic\Star Citizen 12_07_2022 19_22_52.png" />
+    <ClInclude Include="..\..\..\YRGTech\fyfic\CApp.h" />
+    <ClInclude Include="..\..\..\YRGTech\fyfic\CSurface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

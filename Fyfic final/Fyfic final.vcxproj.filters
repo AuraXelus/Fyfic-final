@@ -36,39 +36,39 @@
     <ClCompile Include="main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\YRGTech\fyfic\CApp.cpp">
+    <ClCompile Include="..\..\..\YRGTech\fyfic\CSurface.cpp">
       <Filter>CApp\.cpp</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\YRGTech\fyfic\CApp_OnLoop.cpp">
       <Filter>CApp\.cpp</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\YRGTech\fyfic\CApp_OnRender.cpp">
-      <Filter>CApp\.cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\YRGTech\fyfic\CApp_OnCleanup.cpp">
-      <Filter>CApp\.cpp</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\YRGTech\fyfic\CApp_OnEvent.cpp">
+      <Filter>CApp\.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\YRGTech\fyfic\CApp_OnRender.cpp">
       <Filter>CApp\.cpp</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\YRGTech\fyfic\CApp_OnInit.cpp">
       <Filter>CApp\.cpp</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\YRGTech\fyfic\CSurface.cpp">
-      <Filter>CSurface\.cpp</Filter>
+    <ClCompile Include="..\..\..\YRGTech\fyfic\CApp_OnCleanup.cpp">
+      <Filter>CApp\.cpp</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\YRGTech\fyfic\CApp.h">
-      <Filter>CApp\.h</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\YRGTech\fyfic\CSurface.h">
-      <Filter>CSurface\.h</Filter>
-    </ClInclude>
+    <ClCompile Include="..\..\..\YRGTech\fyfic\CApp.cpp">
+      <Filter>CApp\.cpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\YRGTech\fyfic\Star Citizen 12_07_2022 19_22_52.png">
       <Filter>Fichiers de ressources</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\YRGTech\fyfic\CSurface.h">
+      <Filter>CSurface\.h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\YRGTech\fyfic\CApp.h">
+      <Filter>CApp\.h</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
