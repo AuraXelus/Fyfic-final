@@ -16,6 +16,7 @@ CApp::CApp() {
 }
 
 int CApp::OnExecute() {
+
 	if (OnInit() == false) {
 		return -1;
 	}

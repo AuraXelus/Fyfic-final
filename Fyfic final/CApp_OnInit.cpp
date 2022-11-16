@@ -34,10 +34,6 @@ bool CApp::OnInit()
 			printf("alert fail");
 			success = false;
 		}
-		if ((Surf_BTNcourse = CSurface::OnLoad("btncourse.png", Window)) == NULL) {
-			printf("btncourse fail");
-			success = false;
-		}
 		if ((Surf_BTNprise = CSurface::OnLoad("btnprise.png", Window)) == NULL) {
 			printf("btnprise fail");
 			success = false;
@@ -58,6 +54,12 @@ bool CApp::OnInit()
 		CSurface::Transparent(Surf_heure, 255, 255, 255);
 
 		CSurface::Transparent(Surf_prise, 255, 255, 255);
+
+		//init buttons
+		
+		
+		Button[0].setPosition(75, 450);
+		Button[1].setPosition(350, 450);
 	}
 
 

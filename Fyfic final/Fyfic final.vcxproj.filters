@@ -40,6 +40,15 @@
     <Filter Include="CEvent\.cpp">
       <UniqueIdentifier>{cf148fe3-b592-4dc7-b3a0-2d4dc1492bee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CButton">
+      <UniqueIdentifier>{cbea5a00-65ff-4484-9e54-db8829cd96a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CButton\.h">
+      <UniqueIdentifier>{c57231a3-d5f2-4c73-836a-1bcc3ca48a96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CButton\.cpp">
+      <UniqueIdentifier>{30cb98c2-dfac-48bb-9253-6e78a4f361e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -69,6 +78,18 @@
     <ClCompile Include="CEvent.cpp">
       <Filter>CEvent\.cpp</Filter>
     </ClCompile>
+    <ClCompile Include="CButton.cpp">
+      <Filter>CButton\.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CButton_setPosition.cpp">
+      <Filter>CButton\.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CButton_handleEvent.cpp">
+      <Filter>CButton\.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CButton_render.cpp">
+      <Filter>CButton\.cpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CSurface.h">
@@ -79,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="CEvent.h">
       <Filter>CEvent\.h</Filter>
+    </ClInclude>
+    <ClInclude Include="CButton.h">
+      <Filter>CButton\.h</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

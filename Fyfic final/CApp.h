@@ -1,18 +1,17 @@
 #pragma once
-/*iufyuffy*/
 #include <SDL.h>
+#include <SDL_image.h>
 #include <stdio.h>
+#include <string>
 
 #include"CSurface.h"
 #include "CEvent.h"
+#include "CButton.h"
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 600;
 const int SCREEN_HEIGHT = 600;
 
-//Button dimension constants
-const int BTN_WIDTH = 200;
-const int BTN_HEIGHT = 50;
 
 //Alert dimension constants
 const int ALERT_WIDTH = 450;
@@ -26,6 +25,10 @@ const int H_HEIGHT = 100;
 const int HPRISE_WIDTH = 150;
 const int HPRISE_HEIGHT = 100;
 
+
+const int TOTAL_BUTTONS = 3;
+
+CButton Button[TOTAL_BUTTONS];
 
 class CApp : public CEvent {
 private:
