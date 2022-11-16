@@ -30,6 +30,10 @@ bool CApp::OnInit()
 			//Get window surface
 			ScreenSurface = SDL_GetWindowSurface(Window);
 		}
+		if ((Background = CSurface::OnLoad("background.png", Window)) == NULL) {
+			printf("alert fail");
+			success = false;
+		}
 		if ((Surf_BTNcourse = CSurface::OnLoad("btncourse.png", Window)) == NULL) {
 			printf("btncourse fail");
 			success = false;
@@ -50,6 +54,10 @@ bool CApp::OnInit()
 			printf("alert fail");
 			success = false;
 		}
+
+		CSurface::Transparent(Surf_heure, 255, 255, 255);
+
+		CSurface::Transparent(Surf_prise, 255, 255, 255);
 	}
 
 

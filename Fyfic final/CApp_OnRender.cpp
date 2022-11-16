@@ -1,6 +1,8 @@
 #include "CApp.h"
 
 void CApp::OnRender() {
+	CSurface::OnDraw(ScreenSurface, Background, 0, 0);
+
 	CSurface::OnDraw(ScreenSurface, Surf_Alert, 75, 200);
 
 	CSurface::OnDraw(ScreenSurface, Surf_BTNprise, 75, 450);

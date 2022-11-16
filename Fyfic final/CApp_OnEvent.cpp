@@ -7,3 +7,7 @@ void CApp::OnEvent(SDL_Event* Event) {
 void CApp::OnExit() {
 	Running = false;
 }
+
+void CApp::OnLButtonDown(int mX, int mY) {
+	
+}

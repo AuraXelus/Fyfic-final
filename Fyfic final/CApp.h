@@ -53,6 +53,8 @@ public:
 
     void OnEvent(SDL_Event* Event);
 
+    void OnLButtonDown(int mX, int mY);
+
     void OnExit();
 
     void OnLoop();
