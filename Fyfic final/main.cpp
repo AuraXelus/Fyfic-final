@@ -154,6 +154,84 @@ int main()
     //Creation bebe//
     Bebe Timmy(intervalHeure, intervalMinute, premierBiberonHeure, premierBiberonMinute, quantitéParPrise);
 
-    //Interface
+    //-Application-//
+    //Boucle test (a supprimer après)
+        //Temps qui passe
+    int h(0), m(0);
+    int regurgite;
+    char choix;
+    bool bouton;
+    system("cls");
+    while (h < 24)
+    {
+        //Affichage
+        cout << h << "h : " << m << " m" << endl;
+        if (h == Timmy.getprochainBiberonHeure() and m == Timmy.getprochainBiberonMinute())
+        {
+            quantitéLait = Timmy.boireBiberon(quantitéLait);
+            cout << "ALERTE!!! ALERTE!!! ALERTE!!! ALERTE!!! BIBERON ALERTE!!! ALERTE!!! ALERTE!!! ALERTE!!!" << endl;
+            cout << endl;
+            cout << "A t-il regurgiter" << endl;
+            cout << "|1 - Oui" << endl;
+            cout << "|2 - Non" << endl;
+            cin >> regurgite;
+            switch (regurgite)
+            {
+            case 1:
+                bouton = true;
+                break;
+
+            case 2:
+                bouton = false;
+                break;
+
+            default:
+                cout << "ERROR" << endl;
+                bouton = false;
+                break;
+            }
+            Timmy.regurgiter(bouton);
+        }
+
+
+        cout << "											Il vous reste " << quantitéLait << " cl de lait" << endl;
+        cout << endl;
+        cout << endl;
+        cout << endl;
+        if (quantitéLait <= 0)
+        {
+            system("cls");
+            cout << "Game Over, votre bebe est mort." << endl;
+            cout << "Tu n'as plus besoin de lait maintenant..." << endl;
+        }
+        if ((0 < quantitéLait) and (quantitéLait <= 150))
+        {
+            cout << "Attention, le lait va commmencer a vous manquer, je vous conseil de racheter du lait" << endl;
+            cout << "Voulez vous racheter du lait? (Y-Oui / N-Non)" << endl;
+            cin >> choix;
+            if (choix == 'Y')
+            {
+                system("cls");
+                cout << "Tres bien, je viens de declancher la livraison de 5L de lait immediatement" << endl;
+                quantitéLait += 500;
+            }
+        }
+
+
+        system("pause");
+        system("cls");
+        m += 30;
+        if (m >= 60)
+        {
+            h++;
+            m = 0;
+        }
+        if (h >= 24)
+        {
+            h = 0;
+        }
+    }
+
+
 	return 0;
 }
