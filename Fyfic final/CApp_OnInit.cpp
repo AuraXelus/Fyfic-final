@@ -30,9 +30,26 @@ bool CApp::OnInit()
 			//Get window surface
 			ScreenSurface = SDL_GetWindowSurface(Window);
 		}
-		if ((Surf_Test = CSurface::OnLoad("Star Citizen 12_07_2022 19_22_52.png", Window)) == NULL) {
+		if ((Surf_BTNcourse = CSurface::OnLoad("btncourse.png", Window)) == NULL) {
+			printf("btncourse fail");
 			success = false;
-		}		
+		}
+		if ((Surf_BTNprise = CSurface::OnLoad("btnprise.png", Window)) == NULL) {
+			printf("btnprise fail");
+			success = false;
+		}
+		if ((Surf_heure = CSurface::OnLoad("heure.png", Window)) == NULL) {
+			printf("heure fail");
+			success = false;
+		}
+		if ((Surf_prise = CSurface::OnLoad("nxtheure.png", Window)) == NULL) {
+			printf("nxtheure fail");
+			success = false;
+		}
+		if ((Surf_Alert = CSurface::OnLoad("alert.png", Window)) == NULL) {
+			printf("alert fail");
+			success = false;
+		}
 	}
 
 

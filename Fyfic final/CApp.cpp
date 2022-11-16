@@ -1,8 +1,14 @@
 #include "CApp.h"
 
 CApp::CApp() {
+	Background = NULL;
+	Surf_Alert = NULL;
+	Surf_BTNprise = NULL;
+	Surf_BTNcourse = NULL;
+	Surf_heure = NULL;
+	Surf_prise = NULL;
+
 	ScreenSurface = NULL;
-	Surf_Test = NULL;
 	Window = NULL;
 
 
