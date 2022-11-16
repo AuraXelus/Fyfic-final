@@ -32,7 +32,7 @@ bool CApp::OnInit()
 		}
 		if ((Surf_Test = CSurface::OnLoad("Star Citizen 12_07_2022 19_22_52.png", Window)) == NULL) {
 			success = false;
-		}
+		}		
 	}
 
 

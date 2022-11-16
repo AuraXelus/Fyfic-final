@@ -31,6 +31,15 @@
     <Filter Include="CSurface\.cpp">
       <UniqueIdentifier>{32002136-9192-4352-9f61-9ed7fa6f4ce8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CEvent">
+      <UniqueIdentifier>{0e98b237-76c9-4f2c-be35-9cec507a7505}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CEvent\.h">
+      <UniqueIdentifier>{56c3a5c6-4e26-44a0-a71d-3684d905f9b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CEvent\.cpp">
+      <UniqueIdentifier>{cf148fe3-b592-4dc7-b3a0-2d4dc1492bee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -57,6 +66,9 @@
     <ClCompile Include="CApp_OnRender.cpp">
       <Filter>CApp\.cpp</Filter>
     </ClCompile>
+    <ClCompile Include="CEvent.cpp">
+      <Filter>CEvent\.cpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CSurface.h">
@@ -64,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="CApp.h">
       <Filter>CApp\.h</Filter>
+    </ClInclude>
+    <ClInclude Include="CEvent.h">
+      <Filter>CEvent\.h</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -4,13 +4,14 @@
 #include <stdio.h>
 
 #include"CSurface.h"
+#include "CEvent.h"
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 
 
-class CApp {
+class CApp : public CEvent {
 private:
     bool    Running;
 
@@ -29,6 +30,8 @@ public:
     bool OnInit();
 
     void OnEvent(SDL_Event* Event);
+
+    void OnExit();
 
     void OnLoop();
 
