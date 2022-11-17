@@ -61,7 +61,7 @@ void liste() {
 	do {
 		cout << "\nListe de course :\n";
 		for (int i = 0; i < courses.size(); i++) {
-			global += courses[i] + "\n";
+			cout << courses[i] + "\n";
 		}
 		cout << "\n\n1->Ajouter un article\n2->supprimer la liste\n3->Retour au menu\n";
 		cin >> a;
@@ -128,7 +128,7 @@ Produit InitProduit(string n, int q) {
 }
 
 void DiplayProduit(Produit P) {
-	cout << P.qProduit + ", " + P.nProduit;
+	cout << P.qProduit << ", " << P.nProduit << "\n";
 }
 
 void ShowedList(const vector<Produit>& L) {
@@ -143,7 +143,7 @@ void InitListe(vector<Produit>& L) {
 
 	do {
 
-		global = "\Liste de course :\n";
+		cout << "\Liste de course :\n\n";
 		ShowedList(L);
 
 		cout << "\n\n1->Ajouter un article\n2->supprimer la liste\n3->Retour au menu\n";
@@ -188,8 +188,8 @@ void DisplayTime() {
 int main() {
 	int rep;
 
-	std::thread first(DisplayTime);
-	first.detach();
+	/*std::thread first (DisplayTime);
+	first.detach();*/
 
 	vector<Produit> ListCours;
 
@@ -198,11 +198,11 @@ int main() {
 	do {
 
 		if (profil == false) {
-			global = "\nQue voulez vous faire ?\n1 -> Creer le profil \n2 -> Afficher heure de prise du biberon \n3 -> Liste de courses \n4 -> Quitter\n";
+			cout << "\nQue voulez vous faire ?\n1 -> Creer le profil \n2 -> Afficher heure de prise du biberon \n3 -> Liste de courses \n4 -> Quitter\n";
 		}
 
 		else {
-			global = "\nQue voulez vous faire ?\n1 -> Redefinir le profil \n2 -> Afficher heure de prise du biberon \n3 -> Liste de courses \n4 -> Quitter\n";
+			cout << "\nQue voulez vous faire ?\n1 -> Redefinir le profil \n2 -> Afficher heure de prise du biberon \n3 -> Liste de courses \n4 -> Quitter\n";
 		}
 		cin >> rep;
 
