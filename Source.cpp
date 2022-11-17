@@ -4,6 +4,8 @@
 #include <windows.h>
 #include <stdbool.h>
 #include <ctime>
+#include <chrono>
+#include <thread>
 using namespace std;
 //Désactive le message d'erreur lié à ctime
 #pragma warning( disable : 4996 )
@@ -14,12 +16,14 @@ vector <int> hbib;
 string courses;
 bool profil = false;
 bool heure = false;
+string global;
+bool boucle = true;
 
 
 void affiche() {
 
 	if (profil == false) {
-		cout << "\nVous n'avez pas défini d'heure de prise\n";
+		global = "\nVous n'avez pas défini d'heure de prise\n";
 	}
 
 	else {
@@ -57,7 +61,7 @@ void liste() {
 	do {
 		cout << "\nListe de course :\n";
 		for (int i = 0; i < courses.size(); i++) {
-			cout << courses[i];
+			global += courses[i] + "\n";
 		}
 		cout << "\n\n1->Ajouter un article\n2->supprimer la liste\n3->Retour au menu\n";
 		cin >> a;
@@ -82,29 +86,29 @@ void liste() {
 
 
 
-time_t getheure() {
-
-	// current date/time based on current system
-	time_t now = time(0);
-
-	// convert now to string form
-	tm* ltm = localtime(&now);
-
-	time_t heure = ltm->tm_hour;
-	return heure;
-}
-
-time_t getmin() {
-
-	// current date/time based on current system
-	time_t now = time(0);
-
-	// convert now to string form
-	tm* ltm = localtime(&now);
-
-	time_t minute = ltm->tm_min;
-	return minute;
-}
+//time_t getheure() {
+//
+//	// current date/time based on current system
+//	time_t now = time(0);
+//
+//	// convert now to string form
+//	tm* ltm = localtime(&now);
+//
+//	time_t heure = ltm->tm_hour;
+//	return heure;
+//}
+//
+//time_t getmin() {
+//
+//	// current date/time based on current system
+//	time_t now = time(0);
+//
+//	// convert now to string form
+//	tm* ltm = localtime(&now);
+//
+//	time_t minute = ltm->tm_min;
+//	return minute;
+//}
 
 
 
@@ -124,7 +128,7 @@ Produit InitProduit(string n, int q) {
 }
 
 void DiplayProduit(Produit P) {
-	cout << P.qProduit << ", " << P.nProduit << endl;
+	cout << P.qProduit + ", " + P.nProduit;
 }
 
 void ShowedList(const vector<Produit>& L) {
@@ -139,16 +143,16 @@ void InitListe(vector<Produit>& L) {
 
 	do {
 
-		cout << "\Liste de course :\n";
+		global = "\Liste de course :\n";
 		ShowedList(L);
 
 		cout << "\n\n1->Ajouter un article\n2->supprimer la liste\n3->Retour au menu\n";
 		cin >> a;
 
 		if (a == 1) {
-			cout << "nom produit ?" << endl;
+			cout << "nom produit ?";
 			cin >> n;
-			cout << "quantite ? " << endl;
+			cout << "quantite ? ";
 			cin >> q;
 			L.push_back(InitProduit(n, q));
 		}
@@ -163,44 +167,58 @@ void InitListe(vector<Produit>& L) {
 
 }
 
-int main() {
-	int rep;
 
-	/*bool boucle = true;
+
+void DisplayTime() {
+
 	while (boucle) {
 		time_t now = time(0);
 		tm* ltm = localtime(&now);
 		cout << "Time: " << ltm->tm_hour << ":";
-		cout << ltm->tm_min << ":";
-		cout << ltm->tm_sec;
+		cout << ltm->tm_min;
 		cout << "\n";
-	}*/
+
+		cout << global;
+
+		std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+		system("cls");
+	}
+}
+
+int main() {
+	int rep;
+
+	std::thread first(DisplayTime);
+	first.detach();
 
 	vector<Produit> ListCours;
 
-	cout << getheure() << " : " << getmin();
+	/*cout << getheure() << " : " << getmin();*/
 
 	do {
 
 		if (profil == false) {
-			cout << "\nQue voulez vous faire ?\n1 -> Creer le profil \n2 -> Afficher heure de prise du biberon \n3 -> Liste de courses \n4 -> Quitter\n";
+			global = "\nQue voulez vous faire ?\n1 -> Creer le profil \n2 -> Afficher heure de prise du biberon \n3 -> Liste de courses \n4 -> Quitter\n";
 		}
 
 		else {
-			cout << "\nQue voulez vous faire ?\n1 -> Redefinir le profil \n2 -> Afficher heure de prise du biberon \n3 -> Liste de courses \n4 -> Quitter\n";
+			global = "\nQue voulez vous faire ?\n1 -> Redefinir le profil \n2 -> Afficher heure de prise du biberon \n3 -> Liste de courses \n4 -> Quitter\n";
 		}
 		cin >> rep;
 
 		if (rep == 1) {
+			boucle = false;
 			profiluser();
 		}
 
 		else if (rep == 2) {
+			boucle = false;
 			affiche();
 		}
 
 		else if (rep == 3) {
 			//liste();
+			boucle = false;
 			InitListe(ListCours);
 
 		}
