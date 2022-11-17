@@ -1,5 +1,6 @@
 #pragma once
 
+//Permet de réagir aux diefferents events (mouvement souris, click, key  pressed)
 
 #include <SDL.h>
 

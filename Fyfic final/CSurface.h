@@ -4,6 +4,8 @@
 
 #include "CApp.h"
 
+//Permet de cgharger des image sur des surface et de les dessiner sur la surface d'une fenetre
+
 class CSurface {
 public:
     CSurface();

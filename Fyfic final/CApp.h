@@ -1,4 +1,7 @@
 #pragma once
+
+//Permet de creer une fenetre pour une application et de gérer dite application
+
 #include <SDL.h>
 #include <SDL_image.h>
 #include <stdio.h>
