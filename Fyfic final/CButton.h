@@ -3,6 +3,7 @@
 
 #include "CSurface.h"
 
+// Classe INUTILE POUR LE MOMENTS tant que l'erreur avec la liste de boutons n'est pas résolu
 
 //Button dimension constants
 const int BTN_WIDTH = 200;
