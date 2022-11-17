@@ -10,7 +10,7 @@ bool CApp::OnInit()
 	}
 
 	//Create window
-	Window = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+	Window = SDL_CreateWindow("Fyfic", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 	if (Window == NULL)
 	{
 		printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
