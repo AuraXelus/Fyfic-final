@@ -26,9 +26,7 @@ const int HPRISE_WIDTH = 150;
 const int HPRISE_HEIGHT = 100;
 
 
-const int TOTAL_BUTTONS = 3;
 
-CButton Button[TOTAL_BUTTONS];
 
 class CApp : public CEvent {
 private:
@@ -57,6 +55,8 @@ public:
     void OnEvent(SDL_Event* Event);
 
     void OnLButtonDown(int mX, int mY);
+
+    void OnKeyPress();
 
     void OnExit();
 

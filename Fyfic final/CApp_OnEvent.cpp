@@ -17,3 +17,15 @@ void CApp::OnLButtonDown(int mX, int mY) {
 	}
 	
 }
+
+void CApp::OnKeyPress() {
+	const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
+	if (currentKeyStates[SDL_SCANCODE_LEFT])
+	{
+		printf("prise");
+	}
+	else if (currentKeyStates[SDL_SCANCODE_RIGHT])
+	{
+		printf("course");
+	}
+}

@@ -11,6 +11,7 @@ public:
 
 	virtual void OnEvent(SDL_Event* Event);
 
+	virtual void OnKeyPress();
 
 	virtual void OnMouseMove(int mX, int mY, int relX, int relY, bool Left, bool Right, bool Middle);
 

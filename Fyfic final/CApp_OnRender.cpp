@@ -10,10 +10,13 @@ void CApp::OnRender() {
 
 	CSurface::OnDraw(ScreenSurface, Surf_prise, 375, 50);
 
+	CSurface::OnDraw(ScreenSurface, Surf_BTNprise, 75, 450);
+
+	CSurface::OnDraw(ScreenSurface, Surf_BTNcourse, 350, 450);
 	//render button
 	
-	Button[0].render("btnprise.png",Window,ScreenSurface,Surf_BTNprise,Button[0].mPosition.x, Button[0].mPosition.y);
-	Button[1].render("btncourse.png", Window, ScreenSurface, Surf_BTNcourse, Button[1].mPosition.x, Button[1].mPosition.y);
+	//button[0].render("btnprise.png",Window,ScreenSurface,Surf_BTNprise,button[0].mPosition.x, button[0].mPosition.y);
+	//button[1].render("btncourse.png", Window, ScreenSurface, Surf_BTNcourse, button[1].mPosition.x, button[1].mPosition.y);
 	
 	SDL_UpdateWindowSurface(Window);
 }

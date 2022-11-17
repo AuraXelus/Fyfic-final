@@ -51,6 +51,10 @@ void CEvent::OnEvent(SDL_Event* Event) {
 			}
 			break;
 		}
+		case SDL_KEYDOWN: {
+			OnKeyPress();
+			break;
+		}
 
 
 		case SDL_QUIT: {
@@ -74,6 +78,9 @@ void CEvent::OnEvent(SDL_Event* Event) {
 
 
 
+void CEvent::OnKeyPress() {
+	//Pure virtual, do nothing
+}
 
 void CEvent::OnMouseMove(int mX, int mY, int relX, int relY, bool Left, bool Right, bool Middle) {
 	//Pure virtual, do nothing

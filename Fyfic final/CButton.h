@@ -1,12 +1,17 @@
 #pragma once
 #include <SDL_image.h>
 
-#include "CApp.h"
+#include "CSurface.h"
+
 
 //Button dimension constants
 const int BTN_WIDTH = 200;
 const int BTN_HEIGHT = 50;
 
+
+const int TOTAL_BUTTONS = 3;
+
+//CButton button[TOTAL_BUTTONS];
 
 class CButton
 {

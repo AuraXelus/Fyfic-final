@@ -38,6 +38,10 @@ bool CApp::OnInit()
 			printf("btnprise fail");
 			success = false;
 		}
+		if ((Surf_BTNcourse = CSurface::OnLoad("btncourse.png", Window)) == NULL) {
+			printf("btncourse fail");
+			success = false;
+		}
 		if ((Surf_heure = CSurface::OnLoad("heure.png", Window)) == NULL) {
 			printf("heure fail");
 			success = false;
@@ -58,8 +62,8 @@ bool CApp::OnInit()
 		//init buttons
 		
 		
-		Button[0].setPosition(75, 450);
-		Button[1].setPosition(350, 450);
+		//button[0].setPosition(75, 450);
+		//button[1].setPosition(350, 450);
 	}
 
 
