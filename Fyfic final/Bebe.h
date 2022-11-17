@@ -12,13 +12,17 @@ public:
     int getprochainBiberonHeure();
     int getprochainBiberonMinute();
 
+    //Set
+    void setIntervalHeure(int intervalHeure);
+    void setIntervalMinute(int intervalMinute);
+    void setQuantiteParPrise(int quantitéParPrise);
 
 private:
     int m_intervalHeure;
     int m_intervalMinute;
     int m_prochainBiberonHeure;
     int m_prochainBiberonMinute;
-    int m_quantitéParPrise;
+    int m_quantiteParPrise;
     bool m_regurgiter;
     const int m_intervalRegurgiter = 30;
 };

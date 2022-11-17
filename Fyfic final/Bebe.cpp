@@ -8,14 +8,14 @@ Bebe::Bebe(int intervalHeure, int intervalMinute, int premierBiberonHeure, int p
     this->m_intervalMinute = intervalMinute;
     this->m_prochainBiberonHeure = premierBiberonHeure + m_intervalHeure;
     this->m_prochainBiberonMinute = premierBiberonMinute + m_intervalMinute;
-    this->m_quantitéParPrise = quantitéParPrise;
+    this->m_quantiteParPrise = quantitéParPrise;
     this->m_regurgiter = false;
 }
 
 int Bebe::boireBiberon(int quantiteLait)
 {
     //Alerte//
-    return quantiteLait -= m_quantitéParPrise;
+    return quantiteLait -= m_quantiteParPrise;
 }
 
 void Bebe::regurgiter(bool bouton)
@@ -67,6 +67,7 @@ void Bebe::heureProchainBiberon(int ancienBiberonHeure, int ancienBiberonMinute)
     }
 }
 
+//Get
 int Bebe::getprochainBiberonHeure()
 {
     return m_prochainBiberonHeure;
@@ -75,4 +76,20 @@ int Bebe::getprochainBiberonHeure()
 int Bebe::getprochainBiberonMinute()
 {
     return m_prochainBiberonMinute;
+}
+
+//Set
+void Bebe::setIntervalHeure(int intervalHeure)
+{
+    m_intervalHeure = intervalHeure;
+}
+
+void Bebe::setIntervalMinute(int intervalMinute)
+{
+    m_intervalMinute = intervalMinute;
+}
+
+void Bebe::setQuantiteParPrise(int quantiteParPrise)
+{
+    m_quantiteParPrise = quantiteParPrise;
 }

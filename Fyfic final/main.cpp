@@ -15,6 +15,10 @@ int intervalMinute;
 int quantitéParPrise;
 bool test(false);
 
+Bebe Timmy(intervalHeure, intervalMinute, premierBiberonHeure, premierBiberonMinute, quantitéParPrise);
+int regurgiteChoix;
+bool bouton;
+
 void intro()
 {
     cout << "                                              Bienvenue dans l'application Fyfic" << endl;
@@ -155,17 +159,74 @@ void intro()
     test = false;
 }
 
+time_t getheure() {
+
+    // current date/time based on current system
+    time_t now = time(0);
+
+    // convert now to string form
+    tm* ltm = localtime(&now);
+
+    time_t heure = ltm->tm_hour;
+    return heure;
+}
+
+time_t getmin() {
+
+    // current date/time based on current system
+    time_t now = time(0);
+
+    // convert now to string form
+    tm* ltm = localtime(&now);
+
+    time_t minute = ltm->tm_min;
+    return minute;
+}
+
+void alerte()
+{
+    if (getheure() == Timmy.getprochainBiberonHeure() and getmin() == Timmy.getprochainBiberonMinute())
+            {
+                quantitéLait = Timmy.boireBiberon(quantitéLait);
+                cout << "ALERTE!!! ALERTE!!! ALERTE!!! ALERTE!!! BIBERON ALERTE!!! ALERTE!!! ALERTE!!! ALERTE!!!" << endl;
+                cout << endl;
+                cout << "A t-il regurgiter" << endl;
+                cout << "|1 - Oui" << endl;
+                cout << "|2 - Non" << endl;
+                cin >> regurgiteChoix;
+                switch (regurgiteChoix)
+                {
+                case 1:
+                    bouton = true;
+                    break;
+
+                case 2:
+                    bouton = false;
+                    break;
+
+                default:
+                    cout << "ERROR" << endl;
+                    bouton = false;
+                    break;
+                }
+                Timmy.regurgiter(bouton);
+            }
+}
+
 void setting()
 {
+    system("cls");
     int settingChoix;
     cout << "Quel parametre voulez vous changer?" << endl;
     cout << endl;
     cout << "| 1-Interval entre deux prises" << endl;
     cout << "| 2-Quantite de lait par prise" << endl;
+    cout << "| 3-Retour au menu" << endl;
     cin >> settingChoix;
     switch (settingChoix)
     {
     case 1:
+        system("cls");
         cout << "Quelle est l'intervalle de temps entre chaque prise de votre nourrisson? (heure et minute)" << endl;
         //Heure
         cout << "Heure : ";
@@ -185,6 +246,7 @@ void setting()
             cout << endl;
         } while (test != true);     //Test
         test = false;
+        Timmy.setIntervalHeure(intervalHeure);
         //Minute
         cout << "Minute : ";
         cin >> intervalMinute;
@@ -203,10 +265,28 @@ void setting()
             cout << endl;
         } while (test != true);     //Test
         test = false;
-        //Ajouter setInterval
+        Timmy.setIntervalMinute(intervalMinute);
         break;
 
     case 2:
+        system("cls");
+        cout << "Quelle est la quantite de lait donner par prise? (en cl)" << endl;
+        cin >> quantitéParPrise;
+        do
+        {
+            if (quantitéParPrise >= 0)
+            {
+                test = true;
+            }
+            else
+            {
+                cout << "Quelle est la quantite de lait donner par prise? (en cl, veuillez rentrer un entier positif)" << endl;
+                cin >> quantitéParPrise;
+            }
+            cout << endl;
+        } while (test != true);     //Test
+        test = false;
+        Timmy.setQuantiteParPrise(quantitéParPrise);
         break;
 
     default:
@@ -244,17 +324,17 @@ void liste(vector<Produit>& L) {
     int a;
 
     do {
-
+        system("cls");
         cout << "\Liste de course :\n\n";
         ShowedList(L);
 
-        cout << "\n\n1->Ajouter un article\n2->supprimer la liste\n3->Retour au menu\n";
+        cout << "\n\n1->Ajouter un article\n2->Supprimer la liste\n3->Retour au menu\n";
         cin >> a;
 
         if (a == 1) {
-            cout << "nom produit ?";
+            cout << "Nom de produit: ";
             cin >> n;
-            cout << "quantite ? ";
+            cout << "Quantite voulu: ";
             cin >> q;
             L.push_back(InitProduit(n, q));
         }
@@ -263,46 +343,22 @@ void liste(vector<Produit>& L) {
             L.resize(0);
         }
         else {
-            cout << "\nRetour au menu\n";
+            
         }
     } while (a < 3);
 
 }
 
-time_t getheure() {
-
-	// current date/time based on current system
-	time_t now = time(0);
-
-	// convert now to string form
-	tm* ltm = localtime(&now);
-
-	time_t heure = ltm->tm_hour;
-	return heure;
-}
-
-time_t getmin() {
-
-	// current date/time based on current system
-	time_t now = time(0);
-
-	// convert now to string form
-	tm* ltm = localtime(&now);
-
-	time_t minute = ltm->tm_min;
-	return minute;
-}
-
 int main()
 {
-    //intro();
-    //Creation bebe//
-    Bebe Timmy(intervalHeure, intervalMinute, premierBiberonHeure, premierBiberonMinute, quantitéParPrise);
+    intro();
  
     //Menue
     int choixMenu;
     bool  sortirMenu(false);
     do {
+        system("cls");
+        alerte();
         cout << "Menu :" << endl;
         cout << endl;
         cout << "| 1-Setting" << endl;
