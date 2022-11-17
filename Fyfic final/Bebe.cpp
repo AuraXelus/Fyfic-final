@@ -23,6 +23,7 @@ void Bebe::regurgiter(bool bouton)
     if (bouton == true)
     {
         cout << "Tres bien une nouvelle alerte vous sera envoyer dans 30 min" << endl;
+        system("pause");
         m_regurgiter = true;
   
     }

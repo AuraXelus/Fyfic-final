@@ -2,6 +2,7 @@
 #include <ctime>
 #include <chrono>
 #include <vector>
+#include <thread>
 #include "Bebe.h"
 #pragma warning( disable : 4996 )
 using namespace std;
@@ -14,10 +15,13 @@ int intervalHeure;
 int intervalMinute;
 int quantitéParPrise;
 bool test(false);
-
 Bebe Timmy(intervalHeure, intervalMinute, premierBiberonHeure, premierBiberonMinute, quantitéParPrise);
 int regurgiteChoix;
 bool bouton;
+bool warning = false;
+bool boucle = true;
+bool alarme;
+
 
 void intro()
 {
@@ -73,6 +77,7 @@ void intro()
         }
         cout << endl;
     } while (test != true);     //Test
+    Timmy.setIntervalHeure(intervalHeure);
     test = false;
     //Minute
     cout << "Minute : ";
@@ -92,6 +97,7 @@ void intro()
         cout << endl;
     } while (test != true);     //Test
     test = false;
+    Timmy.setIntervalMinute(intervalMinute);
 
     //Heure initial//
     system("cls");
@@ -157,6 +163,9 @@ void intro()
         cout << endl;
     } while (test != true);     //Test
     test = false;
+    Timmy.setQuantiteParPrise(quantitéParPrise);
+    Timmy.heureProchainBiberon(premierBiberonHeure, premierBiberonMinute);
+    
 }
 
 time_t getheure() {
@@ -181,25 +190,41 @@ time_t getmin() {
 
     time_t minute = ltm->tm_min;
     return minute;
+   
 }
 
 void alerte()
-{
-    if (getheure() == Timmy.getprochainBiberonHeure() and getmin() == Timmy.getprochainBiberonMinute())
+{   
+    long int h = static_cast<long int> (getheure());
+    long int m = static_cast<long int> (getmin());
+
+    Timmy.getprochainBiberonHeure();
+    Timmy.getprochainBiberonMinute();
+
+   /* cout << h << endl;
+    cout << Timmy.getprochainBiberonHeure() << endl;
+ 
+    system("pause");*/
+
+    if (h == Timmy.getprochainBiberonHeure() && m == Timmy.getprochainBiberonMinute())
             {
-                quantitéLait = Timmy.boireBiberon(quantitéLait);
-                cout << "ALERTE!!! ALERTE!!! ALERTE!!! ALERTE!!! BIBERON ALERTE!!! ALERTE!!! ALERTE!!! ALERTE!!!" << endl;
-                cout << endl;
-                cout << "A t-il regurgiter" << endl;
-                cout << "|1 - Oui" << endl;
-                cout << "|2 - Non" << endl;
-                cin >> regurgiteChoix;
-                switch (regurgiteChoix)
+        if (alarme) {
+            warning = true;
+            boucle = false;
+            quantitéLait = Timmy.boireBiberon(quantitéLait);
+            cout << "ALERTE!!! ALERTE!!! ALERTE!!! ALERTE!!! BIBERON ALERTE!!! ALERTE!!! ALERTE!!! ALERTE!!!" << endl;
+            cout << endl;
+            cout << "A t-il regurgiter" << endl;
+            cout << "|4 - Oui" << endl;
+            cout << "|5 - Non" << endl;
+        }
+                
+
+                /*cin >> regurgiteChoix;*/
+               /* switch (regurgiteChoix)
                 {
                 case 1:
-                    bouton = true;
-                    break;
-
+                    cout << "oui";
                 case 2:
                     bouton = false;
                     break;
@@ -208,8 +233,7 @@ void alerte()
                     cout << "ERROR" << endl;
                     bouton = false;
                     break;
-                }
-                Timmy.regurgiter(bouton);
+                }*/
             }
 }
 
@@ -227,6 +251,7 @@ void setting()
     {
     case 1:
         system("cls");
+        alarme = false;
         cout << "Quelle est l'intervalle de temps entre chaque prise de votre nourrisson? (heure et minute)" << endl;
         //Heure
         cout << "Heure : ";
@@ -266,10 +291,12 @@ void setting()
         } while (test != true);     //Test
         test = false;
         Timmy.setIntervalMinute(intervalMinute);
+        alarme = true;
         break;
 
     case 2:
         system("cls");
+        alarme = false;
         cout << "Quelle est la quantite de lait donner par prise? (en cl)" << endl;
         cin >> quantitéParPrise;
         do
@@ -287,9 +314,31 @@ void setting()
         } while (test != true);     //Test
         test = false;
         Timmy.setQuantiteParPrise(quantitéParPrise);
+        alarme = true;
         break;
+    case 4:
+        if (warning) {
+            bouton = true;
+            Timmy.regurgiter(bouton);
+            warning = false;
+            boucle = true;
 
+        }
+
+    case 5:
+        if (warning) {
+            bouton = false;
+            Timmy.regurgiter(bouton);
+            warning = false;
+            boucle = true;
+        }
     default:
+        if (warning) {
+            cout << "ERROR" << endl;
+            bouton = false;
+            boucle = true;
+            warning = false;
+        }
         break;
     }
 
@@ -332,6 +381,7 @@ void liste(vector<Produit>& L) {
         cin >> a;
 
         if (a == 1) {
+            warning = false;
             cout << "Nom de produit: ";
             cin >> n;
             cout << "Quantite voulu: ";
@@ -342,17 +392,49 @@ void liste(vector<Produit>& L) {
         else if (a == 2) {
             L.resize(0);
         }
-        else {
-            
+        else if (a == 4) {
+            if (warning) {
+                bouton = true;
+                Timmy.regurgiter(bouton);
+                warning = false;
+                boucle = true;
+
+            }
         }
-    } while (a < 3);
+        else if (a == 5) {
+            if (warning) {
+                bouton = false;
+                Timmy.regurgiter(bouton);
+                warning = false;
+                boucle = true;
+            }
+        }
+        else {
+            if (warning) {
+                cout << "ERROR" << endl;
+                bouton = false;
+                boucle = true;
+                warning = false;
+            }
+        }
+    } while (a != 3);
 
 }
+void TestHeure() {
+    while (boucle) {
+        alerte();
+    }
+}
+
 
 int main()
 {
     intro();
- 
+
+    std::thread first (TestHeure);
+    std::thread second (alerte);
+    first.detach();
+
     //Menue
     int choixMenu;
     bool  sortirMenu(false);
@@ -377,9 +459,33 @@ int main()
 
         case 3:
             sortirMenu = true;
+            boucle = false;
             break;
 
+        case 4:
+            if (warning) {
+                bouton = true;
+                Timmy.regurgiter(bouton);
+                warning = false;
+                boucle = true;
+
+            }
+
+        case 5:
+            if (warning) {
+                bouton = false;
+                Timmy.regurgiter(bouton);
+                warning = false;
+                boucle = true;
+            }
+
         default:
+            if (warning) {
+                cout << "ERROR" << endl;
+                bouton = false;
+                boucle = true;
+                warning = false;
+            }
             break;
         }
     } while (sortirMenu == false);
@@ -447,6 +553,6 @@ int main()
     //    }
     //}
 
-
+    
     return 0;
 }
