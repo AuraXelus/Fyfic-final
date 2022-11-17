@@ -22,10 +22,10 @@ void CApp::OnKeyPress() {
 	const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
 	if (currentKeyStates[SDL_SCANCODE_LEFT])
 	{
-		printf("prise");
+		printf("btn_prise : appuyer\n");
 	}
 	else if (currentKeyStates[SDL_SCANCODE_RIGHT])
 	{
-		printf("course");
+		printf("btn_course : appuyer\n");
 	}
 }
