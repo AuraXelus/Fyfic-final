@@ -20,7 +20,7 @@ int regurgiteChoix;
 bool bouton;
 bool warning = false;
 bool boucle = true;
-bool alarme;
+bool alarme = true;
 
 
 void intro()
@@ -201,7 +201,7 @@ void alerte()
     Timmy.getprochainBiberonHeure();
     Timmy.getprochainBiberonMinute();
 
-   /* cout << h << endl;
+    /*cout << h << endl;
     cout << Timmy.getprochainBiberonHeure() << endl;
  
     system("pause");*/
